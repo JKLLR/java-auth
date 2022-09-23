@@ -3,6 +3,8 @@ package net.javaguides.springboot.service;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import net.javaguides.springboot.model.Role;
@@ -26,6 +28,12 @@ public class UserServiceImpl implements UserService {
 				registrationDto.getPassword(), Arrays.asList(new Role("ROLE_USER")));
 
 		return userRepository.save(user);
+	}
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
